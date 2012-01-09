@@ -9,9 +9,6 @@ migration 1, :create_articles_table do
   up do
     create_table :articles do
       column :id, Integer, serial: true
-      column :title, String
-      column :description, Text
-      column :image_url, String
       column :token, Integer
       column :published_at, DateTime
     end
