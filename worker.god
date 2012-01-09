@@ -14,6 +14,8 @@ God.watch do |w|
   w.uid = "webmaster"
   w.gid = "webmaster"
   
+  w.log = "/tmp/aftonbladet-most-read.log"
+  
   # Monitoring:
   w.start_if do |start|
     start.condition(:process_running) { |c| c.running = false }

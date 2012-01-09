@@ -28,8 +28,8 @@ begin
     end
     
     remote_task :copy_database do
-      run "cp -ax #{shared_path}/db/database.sqlite3 #{current_release}/db/"
-      run "cp -ax #{shared_path}/config.yml #{current_release}/lib/"
+      run "cp -ax #{shared_path}/db/database.sqlite3 #{current_release}/db"
+      run "cp -ax #{shared_path}/config.yml #{current_release}/lib"
     end
     
     namespace :god do
