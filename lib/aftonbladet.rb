@@ -1,5 +1,6 @@
 require "rest-client"
 require "plist"
+require "charlock_holmes/string"
 
 class Aftonbladet
   def initialize
@@ -24,6 +25,6 @@ private
   def data
     @_data ||= RestClient.get("http://144.63.250.12/plist/ver2/section/mm/appar/supernytt/mestlast/nyh", headers: {
       "UserAgent" => @user_agent
-    })
+    }).detect_encoding!
   end
 end
