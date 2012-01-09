@@ -12,6 +12,7 @@ gem "dm-timestamps"
 gem "twitter"
 gem "bitly"
 gem "string_utils"
+gem "charlock_holmes"
 
 group :development do
   gem "vlad"
