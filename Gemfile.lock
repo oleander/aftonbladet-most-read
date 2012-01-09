@@ -122,6 +122,7 @@ DEPENDENCIES
   dm-validations
   jsonify
   plist
+  rake
   rest-client
   string_utils
   twitter

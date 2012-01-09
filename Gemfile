@@ -12,6 +12,7 @@ gem "dm-timestamps"
 gem "twitter"
 gem "bitly"
 gem "string_utils"
+gem "rake"
 
 group :rakefile do
   gem "vlad"
