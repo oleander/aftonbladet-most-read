@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-require "data_mapper"
 require "rest-client"
 require "plist"
 require "dm-sqlite-adapter"
