@@ -33,5 +33,9 @@ describe Aftonbladet do
       article.id.should be_instance_of(Fixnum)
       article.id.should > 0
     end
+    
+    it "should have a url" do
+      article.url.should match(%r{http://www.aftonbladet.se/nyheter/article\d+.ab})
+    end
   end
 end
