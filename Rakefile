@@ -29,15 +29,16 @@ begin
     
     remote_task :copy_database do
       run "cp -ax #{shared_path}/db/database.sqlite3 #{current_release}/db/"
+      run "cp -ax #{shared_path}/config.yml #{current_release}/lib/"
     end
     
     namespace :god do
       remote_task :reload do
-        #run "#{god_cmd} load #{current_release}/worker.god"
+        run "#{god_cmd} load #{current_release}/worker.god"
       end
       
       remote_task :restart do
-        #run "#{god_cmd} restart aftonbladet-most-read"
+        run "#{god_cmd} restart aftonbladet-most-read"
       end
     end
   end
