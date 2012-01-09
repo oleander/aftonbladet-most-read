@@ -16,8 +16,8 @@ require "./lib/models"
 
 sleep_time = 60*10 # 10 minutes
 loop do
-  # Fetching new ones from source
-  articles = Aftonbladet.new.articles
+  # Fetching (top 5) news from source
+  articles = Aftonbladet.new.articles[0..4]
   ids = Article.all(token: articles.map(&:id)).map(&:token)
   
   # Removing old ones
