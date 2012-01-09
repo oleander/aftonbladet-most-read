@@ -4,6 +4,7 @@ require "plist"
 class Aftonbladet
   def initialize
     @article = Struct.new(:title, :published_at, :description, :image_url, :id, :url)
+    @user_agent = "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3"
   end
   
   def articles
@@ -21,6 +22,8 @@ class Aftonbladet
   
 private
   def data
-    @_data ||= RestClient.get("http://144.63.250.12/plist/ver2/section/mm/appar/supernytt/mestlast/nyh")
+    @_data ||= RestClient.get("http://144.63.250.12/plist/ver2/section/mm/appar/supernytt/mestlast/nyh", headers: {
+      "UserAgent" => @user_agent
+    })
   end
 end
