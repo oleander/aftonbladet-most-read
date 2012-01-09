@@ -22,14 +22,12 @@ loop do
   
   # Removing old ones
   articles.reject!{|article| ids.include?(article.id)}
-  
   puts "#{articles.count} articles found." if articles.any?
-  
   articles.each do |article|
     url    = B.shorten(article.url).short_url
     length = 140 - url.length - 1
     post   = StringUtils.truncate("#{article.title} – #{article.description}", length, "...") + " " + url
-    Article.create(token: article.id, published_at: article.published_at)  
+    Article.create(token: article.id, published_at: article.published_at)
     Twitter.update(post)
   end
   
