@@ -4,7 +4,7 @@ God.watch do |w|
   w.interval = 60.seconds
   w.dir      = File.dirname(__FILE__)
   
-  w.start = "bundle exec /usr/local/rvm/bin/webmaster_ruby worker.rb"
+  w.start = "/usr/local/rvm/bin/webmaster_bundle exec /usr/local/rvm/bin/webmaster_ruby worker.rb"
   
   # Delay for X seconds on start/stop
   w.start_grace = 5.seconds
