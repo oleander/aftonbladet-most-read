@@ -51,16 +51,34 @@ GEM
       dm-core (~> 1.2.0)
     do_sqlite3 (0.10.7)
       data_objects (= 0.10.7)
+    faraday (0.7.5)
+      addressable (~> 2.2.6)
+      multipart-post (~> 1.1.3)
+      rack (>= 1.1.0, < 2)
+    faraday_middleware (0.7.0)
+      faraday (~> 0.7.3)
     fastercsv (1.5.4)
+    hashie (1.1.0)
     json (1.6.4)
     json_pure (1.6.4)
     jsonify (0.2.0)
     mime-types (1.17.2)
     multi_json (1.0.4)
+    multi_xml (0.4.1)
+    multipart-post (1.1.4)
     plist (3.1.0)
+    rack (1.4.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    simple_oauth (0.1.5)
     stringex (1.3.0)
+    twitter (1.7.2)
+      faraday (~> 0.7.4)
+      faraday_middleware (~> 0.7.0)
+      hashie (~> 1.1.0)
+      multi_json (~> 1.0.0)
+      multi_xml (~> 0.4.0)
+      simple_oauth (~> 0.1.5)
     uuidtools (2.1.2)
 
 PLATFORMS
@@ -76,3 +94,4 @@ DEPENDENCIES
   jsonify
   plist
   rest-client
+  twitter
