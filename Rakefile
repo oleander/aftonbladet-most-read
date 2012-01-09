@@ -21,19 +21,23 @@ begin
   
   namespace :vlad do
     desc "Deploys a new revision of webbhallon and reloads it using God"
-    task :deploy => ["update", "bundle", "god:reload", "god:restart", "cleanup"]
+    task :deploy => ["update", "copy_database", "bundle", "god:reload", "god:restart", "cleanup"]
     
     remote_task :bundle do
       run "cd #{current_release} && #{bundle_cmd} install --without=rakefile,test --deployment"
     end
     
+    remote_task :copy_database do
+      run "cp -ax #{shared_path}/db/database.sqlite3 #{current_release}/db/"
+    end
+    
     namespace :god do
       remote_task :reload do
-        run "#{god_cmd} load #{current_release}/worker.god"
+        #run "#{god_cmd} load #{current_release}/worker.god"
       end
       
       remote_task :restart do
-        run "#{god_cmd} restart aftonbladet-most-read"
+        #run "#{god_cmd} restart aftonbladet-most-read"
       end
     end
   end
