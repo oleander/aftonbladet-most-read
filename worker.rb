@@ -28,7 +28,12 @@ loop do
     length = 140 - url.length - 1
     post   = StringUtils.truncate("#{article.title} – #{article.description}", length, "...") + " " + url
     Article.create(token: article.id, published_at: article.published_at)
-    Twitter.update(post)
+    
+    begin
+      Twitter.update(post)
+    rescue
+      puts "Error: #{$!.message}"
+    end
   end
   
   sleep(sleep_time)
